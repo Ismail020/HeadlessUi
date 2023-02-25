@@ -196,19 +196,19 @@ const gameSelection = ref("new game");
                     <RadioGroupLabel class="font-bold">Video Game Menu</RadioGroupLabel>
                     <div class="space-y-4 mt-4">
                         <RadioGroupOption v-slot="{ checked }" value="new game" class="text-center focus:outline-none cursor-pointer">
-                            <div class="border border-transparent px-4 py-4" :class="checked ? 'border-gray-600' : ''">
+                            <div class="border px-4 py-4" :class="checked ? 'border-gray-600' : ''">
                                 <div>New Game</div>
                             </div>
                         </RadioGroupOption>
                         <RadioGroupOption v-slot="{ checked }" value="load game" class="text-center focus:outline-none cursor-pointer">
-                            <div class="border border-transparent px-4 py-4" :class="checked ? 'border-gray-600' : ''">
+                            <div class="border px-4 py-4" :class="checked ? 'border-gray-600' : ''">
                                 <div>
                                     <div class="font-bold">Load Game</div>
                                 </div>
                             </div>
                         </RadioGroupOption>
                         <RadioGroupOption v-slot="{ checked }" value="settings" class="text-center focus:outline-none cursor-pointer">
-                            <div class="border border-transparent px-4 py-4" :class="checked ? 'border-gray-600' : ''">
+                            <div class="border px-4 py-4" :class="checked ? 'border-gray-600' : ''">
                                 <div>
                                     <div class="font-bold">Settings</div>
                                 </div>
@@ -221,20 +221,20 @@ const gameSelection = ref("new game");
             <div class="py-8">
                 <h2 class="font-bold text-xl pt-2">Tabs</h2>
                 <TabGroup>
-                    <TabList class="bg-blue-500 rounded-md flex justify-between px-2 py-2">
-                        <Tab as="template" v-slot="{ selected }"><button class="rounded-md text-white px-4 py-2" :class="{
+                    <TabList class="bg-blue-500 text-white rounded-md flex justify-between px-2 py-2">
+                        <Tab as="template" v-slot="{ selected }"><button class="rounded-md px-4 py-2" :class="{
                           'bg-white text-gray-900 !important': selected,
                         }">
                         Tab 1
                       </button>
                         </Tab>
-                        <Tab as="template" v-slot="{ selected }"><button class="rounded-md text-white px-4 py-2" :class="{
+                        <Tab as="template" v-slot="{ selected }"><button class="rounded-md px-4 py-2" :class="{
                           'bg-white text-gray-900': selected,
                         }">
                         Tab 2
                       </button>
                         </Tab>
-                        <Tab as="template" v-slot="{ selected }"><button class="rounded-md text-white px-4 py-2" :class="{
+                        <Tab as="template" v-slot="{ selected }"><button class="rounded-md px-4 py-2" :class="{
                           'bg-white text-gray-900': selected,
                         }">
                         Tab 3
