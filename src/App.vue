@@ -11,6 +11,9 @@ import {
   Dialog,
   DialogPanel,
   DialogTitle,
+  RadioGroup,
+  RadioGroupLabel,
+  RadioGroupOption,
 } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/24/solid";
 import { PencilIcon } from "@heroicons/vue/24/outline";
@@ -18,6 +21,7 @@ import { DocumentDuplicateIcon } from "@heroicons/vue/24/outline";
 import { ArchiveBoxIcon } from "@heroicons/vue/24/outline";
 import { XCircleIcon } from "@heroicons/vue/24/outline";
 import { XMarkIcon } from "@heroicons/vue/24/outline";
+import { CheckCircleIcon } from "@heroicons/vue/24/outline";
 
 const isOpen = ref(false);
 
@@ -27,6 +31,9 @@ function closeModal() {
 function openModal() {
   isOpen.value = true;
 }
+
+const plan = ref("startup");
+const gameSelection = ref("new game");
 </script>
 
 <template>
@@ -114,11 +121,8 @@ function openModal() {
           </transition>
         </Menu>
 
-        <div>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-          voluptate voluptatum quia cupiditate? Saepe inventore est dolores sed
-          rem aspernatur accusamus dolor libero, id voluptate suscipit
-          laudantium at molestias aliquid?
+        <div class="mt-4">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
         </div>
       </div>
       <div class="mt-4">
@@ -142,7 +146,9 @@ function openModal() {
                 leave-from="opacity-100"
                 leave-to="opacity-0"
               >
-                <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                <div
+                  class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+                />
               </TransitionChild>
 
               <div class="fixed inset-0 overflow-y-auto">
@@ -161,7 +167,10 @@ function openModal() {
                     <DialogPanel
                       class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
                     >
-                      <button class="absolute top-3 right-3" @click="closeModal">
+                      <button
+                        class="absolute top-3 right-3"
+                        @click="closeModal"
+                      >
                         <XMarkIcon class="w-5 h-5" />
                       </button>
                       <DialogTitle
@@ -194,6 +203,117 @@ function openModal() {
             </Dialog>
           </TransitionRoot>
         </div>
+      </div>
+      <div class="mt-4">
+        <h2 class="font-bold text-xl pt-2">Radio Group</h2>
+        <RadioGroup v-model="plan" class="max-w-md mt-8">
+          <RadioGroupLabel class="font-bold">Plan</RadioGroupLabel>
+          <div class="space-y-4 mt-4">
+            <RadioGroupOption
+              v-slot="{ checked }"
+              value="startup"
+              class="bg-white rounded-md shadow"
+            >
+              <div
+                class="flex items-center justify-between rounded-md px-4 py-4"
+                :class="checked ? 'bg-blue-500 text-white' : ''"
+              >
+                <div>
+                  <div class="font-bold">Startup</div>
+                  <div class="text-sm">12GB/6 CPUs · 160 GB SSD disk</div>
+                </div>
+                <div v-show="checked">
+                  <CheckCircleIcon class="w-5 h-5" />
+                </div>
+              </div>
+            </RadioGroupOption>
+            <RadioGroupOption
+              v-slot="{ checked }"
+              value="business"
+              class="bg-white rounded-md shadow"
+            >
+              <div
+                class="flex items-center justify-between rounded-md px-4 py-4"
+                :class="checked ? 'bg-blue-500 text-white' : ''"
+              >
+                <div>
+                  <div class="font-bold">Business</div>
+                  <div class="text-sm">16GB/8 CPUs · 512 GB SSD disk</div>
+                </div>
+                <div v-show="checked">
+                  <CheckCircleIcon class="w-5 h-5" />
+                </div>
+              </div>
+            </RadioGroupOption>
+            <RadioGroupOption
+              v-slot="{ checked }"
+              value="enterprise"
+              class="bg-white rounded-md shadow"
+            >
+              <div
+                class="flex items-center justify-between rounded-md px-4 py-4"
+                :class="checked ? 'bg-blue-500 text-white' : ''"
+              >
+                <div>
+                  <div class="font-bold">Enterprise</div>
+                  <div class="text-sm">32GB/12 CPUs · 1024 GB SSD disk</div>
+                </div>
+                <div v-show="checked">
+                  <CheckCircleIcon class="w-5 h-5" />
+                </div>
+              </div>
+            </RadioGroupOption>
+          </div>
+        </RadioGroup>
+      </div>
+
+      <div class="mt-4">
+        <h2 class="font-bold text-xl pt-2">Alternate Radio Group</h2>
+        <RadioGroup v-model="gameSelection" class="font-retro max-w-md mt-8">
+          <RadioGroupLabel class="font-bold">Video Game Menu</RadioGroupLabel>
+          <div class="space-y-4 mt-4">
+            <RadioGroupOption
+              v-slot="{ checked }"
+              value="new game"
+              class="text-center focus:outline-none cursor-pointer"
+            >
+              <div
+                class="border border-transparent px-4 py-4"
+                :class="checked ? 'border-gray-500' : ''"
+              >
+                <div>New Game</div>
+              </div>
+            </RadioGroupOption>
+            <RadioGroupOption
+              v-slot="{ checked }"
+              value="load game"
+              class="text-center focus:outline-none cursor-pointer"
+            >
+              <div
+                class="border border-transparent px-4 py-4"
+                :class="checked ? 'border-gray-500' : ''"
+              >
+                <div>
+                  <div class="font-bold">Load Game</div>
+                </div>
+              </div>
+            </RadioGroupOption>
+            <RadioGroupOption
+              v-slot="{ checked }"
+              value="settings"
+              class="text-center focus:outline-none cursor-pointer"
+            >
+              <div
+                class="border border-transparent px-4 py-4"
+                :class="checked ? 'border-gray-500' : ''"
+              >
+                <div>
+                  <div class="font-bold">Settings</div>
+                </div>
+              </div>
+            </RadioGroupOption>
+          </div>
+        </RadioGroup>
       </div>
     </div>
   </div>
