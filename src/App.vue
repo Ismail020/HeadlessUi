@@ -189,26 +189,26 @@ const gameSelection = ref("new game");
                     </div>
                 </RadioGroup>
             </div>
-    
+
             <div class="mt-4">
                 <h2 class="font-bold text-xl pt-2">Alternate Radio Group</h2>
                 <RadioGroup v-model="gameSelection" class="font-retro max-w-md mt-8">
                     <RadioGroupLabel class="font-bold">Video Game Menu</RadioGroupLabel>
                     <div class="space-y-4 mt-4">
                         <RadioGroupOption v-slot="{ checked }" value="new game" class="text-center focus:outline-none cursor-pointer">
-                            <div class="border border-transparent px-4 py-4" :class="checked ? 'border-gray-500' : ''">
+                            <div class="border border-transparent px-4 py-4" :class="checked ? 'border-gray-600' : ''">
                                 <div>New Game</div>
                             </div>
                         </RadioGroupOption>
                         <RadioGroupOption v-slot="{ checked }" value="load game" class="text-center focus:outline-none cursor-pointer">
-                            <div class="border border-transparent px-4 py-4" :class="checked ? 'border-gray-500' : ''">
+                            <div class="border border-transparent px-4 py-4" :class="checked ? 'border-gray-600' : ''">
                                 <div>
                                     <div class="font-bold">Load Game</div>
                                 </div>
                             </div>
                         </RadioGroupOption>
                         <RadioGroupOption v-slot="{ checked }" value="settings" class="text-center focus:outline-none cursor-pointer">
-                            <div class="border border-transparent px-4 py-4" :class="checked ? 'border-gray-500' : ''">
+                            <div class="border border-transparent px-4 py-4" :class="checked ? 'border-gray-600' : ''">
                                 <div>
                                     <div class="font-bold">Settings</div>
                                 </div>
